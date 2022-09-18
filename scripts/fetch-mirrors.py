@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import argparse
 import http
 import json
 import requests
@@ -29,12 +30,17 @@ def get_mirrors():
       'beta': beta_mirrors(),
   }
 
-def save_mirrors(mirrors):
-  with open('mirrors.json', 'w') as f:
+def save_mirrors(mirrors, path):
+  with open(path, 'w') as f:
     json.dump(mirrors, f)
 
 def main():
-  save_mirrors(get_mirrors())
+  parser = argparse.ArgumentParser(description='Fetch Armbian mirrors')
+  parser.add_argument('--output', type=str, help='Output mirrors to file')
+  args = parser.parse_args()
+
+  mirrors_file = args.output or 'mirrors.json'
+  save_mirrors(get_mirrors(), mirrors_file)
 
 if __name__ == '__main__':
   main()
