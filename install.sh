@@ -12,17 +12,9 @@ sudo chown caddy:www-data /var/www/armbian-mirror
 sudo chmod 0775 /var/www/armbian-mirror
 
 sudo mkdir -p /etc/caddy
-sudo tee /etc/caddy/Caddyfile <<EOF
-armbian-mirror.dotsrc.org {
-  root * /var/www/armbian-mirror
-  file_server
-  log {
-    output file /var/log/caddy/access.log
-  }
-}
-EOF
+cp templates/Caddyfile /etc/caddy/Caddyfile
 sudo systemctl restart caddy
 
-cp index.html.template /var/www/armbian-mirror/index.html
+cp templates/index.html /var/www/armbian-mirror/index.html
 chown caddy:www-data /var/www/armbian-mirror/index.html
 chmod 0644 /var/www/armbian-mirror/index.html
