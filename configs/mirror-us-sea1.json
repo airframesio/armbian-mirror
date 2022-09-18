@@ -1,0 +1,18 @@
+{
+  "name": "Armbian Mirror",
+  "location": "Seattle, Washington, USA",
+  "url": "https://mirror-us-sea1.armbian.airframes.io",
+  "bandwidth": "1Gbps",
+  "sponsor": {
+    "name": "Airframes",
+    "url": "https://airframes.io",
+    "logo": "https://app.airframes.io/logotype-bw.svg"
+  },
+  "repositories": [
+    {
+      "type": "images",
+      "path": "/var/www/armbian-www/dl",
+      "url": "https://mirror-us-sea1.armbian.airframes.io/dl"
+    }
+  ]
+}
