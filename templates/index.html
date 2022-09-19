@@ -34,7 +34,7 @@
       </tr>
       <tr>
         <td><strong>Status</strong></td>
-        <td>{{ if last_sync then "Current" else "Pending" }}</td>
+        <td>{{ "Current" if last_sync else "Pending" }}</td>
       </tr>
       {%- if this_mirror.status_detail %}
       <tr>
