@@ -1,32 +1,45 @@
+{# templates/index.html #}
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Armbian Mirror in Nuremburg, Germany, EU</title>
+    <title>Armbian Mirror in {{ this_mirror.location }}</title>
   </head>
   <style>
     table { border: 1px solid #999; }
     th, td { padding: 5px; }
   </style>
-  <body>
-    <h1><a href="https://armbian.com">Armbian</a> Mirror</h1>
-    <p>This is an Armbian mirror containing various components.</p>
+  <body style="text-align: center;">
+    <a href="https://armbian.com"><img src="/armbian-logo.png"></a>
+    <h1>Armbian Mirror</h1>
+    <p>This is mirror containing various Armbian components.</p>
     <table>
       <tr>
         <td><strong>Location</strong></th>
-        <td>Nuremburg, Germany, USA</td>
-      </tr>
-      <tr>
-        <td><strong>Images</strong></td>
-        <td><a href="https://mirror-eu-de1.armbian.airframes.io/dl/">https://mirror-eu-de1.armbian.airframes.io/dl/</a></td>
-      </tr>
-      <tr>
-        <td><strong>Packages</strong></td>
-        <td><a href="https://mirror-eu-de1.armbian.airframes.io/apt/">https://mirror-eu-de1.armbian.airframes.io/apt/</a></td>
+        <td>{{ this_mirror.location }}</td>
       </tr>
       <tr>
         <td><strong>Bandwidth</strong></th>
-        <td>1 Gbit/s</td>
+        <td>{{ this_mirror.bandwidth }}</td>
       </tr>
+      {% for repository in this_mirror.repositories %}
+      <tr>
+        <td><strong>{{ repository.type }}</strong></td>
+        <td><a href="{{ repository.url }}">{{ repository.url }}</a></td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td><strong>Status</strong></td>
+        <td>Current</td>
+      </tr>
+      {% if this_mirror.status_detail %}
+      <tr>
+        <td><strong>Status Detail</strong></td>
+        <td>
+          This mirror is synchronized with the main Armbian repository.
+          It was last synchronized on 2021-03-31 at 00:00:00 UTC.
+        </td>
+      </tr>
+      {% endif %}
     </table>
     <br>
     <p>
@@ -36,7 +49,11 @@
       <a href="http://airframes.io"><img src="https://app.airframes.io/logotype-bw.svg"></a>
     </p>
     <h2>Other Armbian mirrors hosted by Airframes:</h2>
-    <p><a href="https://mirror-us-sea1.armbian.airframes.io">Seattle, Washington, USA - Mirror 1</a> (Images)</p>
-    <p><a href="https://mirror-us-sea2.armbian.airframes.io">Seattle, Washington, USA - Mirror 2</a> (Packages)</p>
+    {% for mirror in our_mirrors %}
+    <p>
+      <a href="{{ mirror.url }}">{{ mirror.location }}</a>
+      ({{ mirror.repositories|selectattr('type')|map(attribute='type')|join(', ') }})
+    </p>
+    {% endfor %}
   </body>
 </html>

@@ -7,31 +7,35 @@
     table { border: 1px solid #999; }
     th, td { padding: 5px; }
   </style>
-  <body>
-    <h1><a href="https://armbian.com">Armbian</a> Mirror</h1>
-    <p>This is an Armbian mirror containing various components.</p>
+  <body style="text-align: center;">
+    <a href="https://armbian.com"><img src="/armbian-logo.png"></a>
+    <h1>Armbian Mirror</h1>
+    <p>A containing various Armbian components.</p>
     <table>
       <tr>
         <td><strong>Location</strong></th>
         <td>Nuremburg, Germany, USA</td>
       </tr>
       <tr>
-        <td><strong>Images</strong></td>
-        <td><a href="https://mirror-eu-de1.armbian.airframes.io/dl/">https://mirror-eu-de1.armbian.airframes.io/dl/</a></td>
-      </tr>
-      <tr>
-        <td><strong>Packages</strong></td>
-        <td><a href="https://mirror-eu-de1.armbian.airframes.io/apt/">https://mirror-eu-de1.armbian.airframes.io/apt/</a></td>
-      </tr>
-      <tr>
         <td><strong>Bandwidth</strong></th>
         <td>1 Gbit/s</td>
+      </tr>
+      <tr>
+        <td><strong>Status</strong></td>
+        <td>Syncing</td>
+      </tr>
+      <tr>
+        <td><strong>Status Detail</strong></td>
+        <td>
+          This mirror is not yet synchronized with the main Armbian repository. Please come back
+          later when it is finished.
+        </td>
       </tr>
     </table>
     <br>
     <p>
       <div style="margin-bottom: 10px;">
-        Hosted by:
+        Hosted and sponsored by:
       </div>
       <a href="http://airframes.io"><img src="https://app.airframes.io/logotype-bw.svg"></a>
     </p>
