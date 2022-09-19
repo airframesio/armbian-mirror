@@ -35,5 +35,7 @@ $ /opt/armbian-mirror/scripts/rsync-mirror.sh
 Mirror with a custom images and packages URLs:
 
 ```
-$ DL_MIRROR_URL=rsync://mirrors.dotsrc.org/armbian-dl APT_MIRROR_URL=rsync://mirrors.dotsrc.org/armbian-apt /opt/armbian-mirror/scripts/rsync-mirror.sh
+$ DL_MIRROR_URL=rsync://mirrors.dotsrc.org/armbian-dl \
+APT_MIRROR_URL=rsync://mirrors.dotsrc.org/armbian-apt \
+/opt/armbian-mirror/scripts/rsync-mirror.sh
 ```
