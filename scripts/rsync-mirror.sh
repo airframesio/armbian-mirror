@@ -36,8 +36,8 @@ MIRROR_BANDWIDTH=$(jq -r '.bandwidth' $CONFIG_PATH)
 MIRROR_CONTACT_NAME=$(jq -r '.contact.name' $CONFIG_PATH)
 MIRROR_CONTACT_EMAIL=$(jq -r '.contact.email' $CONFIG_PATH)
 
-MIRROR_IMAGES_ENABLED=$(jq -r '[.repositories[].type] | contains(["packages"])' $CONFIG_PATH)
-MIRROR_PACKAGES_ENABLED=$(jq -r '[.repositories[].type] | contains(["images"])' $CONFIG_PATH)
+MIRROR_IMAGES_ENABLED=$(jq -r '[.repositories[].type] | contains(["images"])' $CONFIG_PATH)
+MIRROR_PACKAGES_ENABLED=$(jq -r '[.repositories[].type] | contains(["packages"])' $CONFIG_PATH)
 MIRROR_ARCHIVES_ENABLED=$(jq -r '[.repositories[].type] | contains(["archives"])' $CONFIG_PATH)
 MIRROR_BETA_ENABLED=$(jq -r '[.repositories[].type] | contains(["beta"])' $CONFIG_PATH)
 
