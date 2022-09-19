@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-HOSTNAME=${1:-":80"}
+if [ -z "$1" ]; then
+  echo "Usage: $0 <hostname>"
+  exit 1
+fi
+HOSTNAME=$1
+
 BASE_DIR="/opt/armbian-mirror"
 OWNER="caddy"
 GROUP="www-data"

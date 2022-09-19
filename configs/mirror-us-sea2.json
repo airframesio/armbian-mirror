@@ -15,6 +15,12 @@
   },
   "repositories": [
     {
+      "type": "images",
+      "path": "/opt/armbian-mirror/www/dl",
+      "url": "https://mirror-us-sea1.armbian.airframes.io/dl",
+      "source_url": "rsync://rsync.armbian.com/dl"
+    },
+    {
       "type": "packages",
       "path": "/opt/armbian-mirror/www/apt",
       "url": "https://mirror-us-sea2.armbian.airframes.io/apt",
