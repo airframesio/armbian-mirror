@@ -19,9 +19,12 @@ def load_configs_from_json(configs_path):
     yield load_config_from_json(configs_path, config)
 
 def load_last_sync():
-  with open('/var/run/armbian-mirror.last-sync', 'r') as f:
-    epoch = int(f.read().rstrip())
-    return datetime.datetime.fromtimestamp(epoch)
+  try:
+    with open('/var/run/armbian-mirror.last-sync', 'r') as f:
+      epoch = int(f.read().rstrip())
+      return datetime.datetime.fromtimestamp(epoch)
+  except FileNotFoundError as e:
+    return None
 
 def save_html_to_file(html, path):
   with open(path, 'w') as f:
