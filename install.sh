@@ -22,8 +22,9 @@ sudo systemctl restart caddy
 
 # Setup initial HTML template
 sudo cp templates/index.html.initial /opt/armbian-mirror/www/index.html
-sudo chown caddy:www-data /opt/armbian-mirror/www/index.html
-sudo chmod 0644 /opt/armbian-mirror/www/index.html
+sudo cp armbian-logo.png /opt/armbian-mirror/www/armbian-logo.png
+sudo chown caddy:www-data /opt/armbian-mirror/www/*
+sudo chmod 0644 /opt/armbian-mirror/www/*
 
 # Install scripts
 sudo mkdir -p /opt/armbian-mirror/scripts
