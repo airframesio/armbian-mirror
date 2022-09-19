@@ -12,6 +12,9 @@ TEMPLATES_DIR="${BASE_DIR}/templates"
 # Update existing packages
 sudo apt update && sudo apt full-upgrade -y
 
+# Install dependencies
+sudo apt install -y jq rsync
+
 # Install Caddy
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https -y
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
