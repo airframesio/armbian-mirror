@@ -1,5 +1,6 @@
 {
-  "name": "Armbian Mirror",
+  "name": "mirror-eu-de1",
+  "pretty_name": "Armbian Mirror",
   "location": "Nuremburg, Germany, EU",
   "url": "https://mirror-eu-de1.armbian.airframes.io",
   "bandwidth": "1Gbps",
@@ -19,5 +20,6 @@
       "path": "/var/www/armbian-www/apt",
       "url": "https://mirror-eu-de1.armbian.airframes.io/apt"
     }
-  ]
+  ],
+  "enabled": true
 }
