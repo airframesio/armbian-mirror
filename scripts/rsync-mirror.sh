@@ -2,29 +2,30 @@
 
 CONFIG_PATH="${1:-/opt/armbian-mirror/configs/me}"
 if [ ! -f $CONFIG_PATH ]; then
-    echo "Config file not found, exiting"
-    exit 1
+  echo "Config file not found, exiting"
+  exit 1
 fi
 
 MIRROR_ENABLED=$(jq -r '.enabled' $CONFIG_PATH)
 if [ "$MIRROR_ENABLED" = "false" ]; then
-    echo "Mirror is disabled, exiting"
-    exit 0
+  echo "Mirror is disabled, exiting"
+  exit 0
 fi
 
 if [ -f /var/run/armbian-mirror.lock ]; then
-    echo "Lock file found, exiting"
-    exit 0
+  echo "Lock file found, exiting"
+  exit 0
 fi
 touch /var/run/armbian-mirror.lock
 
 if [ -f /var/run/armbian-mirror.last-sync ]; then
-    LAST_SYNC=$(cat /var/run/armbian-mirror.last-sync)
+  LAST_SYNC=$(cat /var/run/armbian-mirror.last-sync)
+  LAST_SYNC_STRING="$(date -r $LAST_SYNC)"
 else
-    LAST_SYNC=0
+  LAST_SYNC_STRING="never"
 fi
 
-echo "Starting Armbian mirror sync at $(date) (last sync: $(date -r $LAST_SYNC))"
+echo "Starting Armbian mirror sync at $(date) (last sync: $LAST_SYNC_STRING)"
 
 MIRROR_NAME=$(jq -r '.name' $CONFIG_PATH)
 MIRROR_PRETTY_NAME=$(jq -r '.pretty_name' $CONFIG_PATH)
