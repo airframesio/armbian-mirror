@@ -36,7 +36,7 @@ def main():
     return
 
   if os.listdir('configs') == []:
-    print("You must create a config file in configs for this mirror, and any other mirrors you host.")
+    print("You must create a config file in configs for this mirror linked to from configs/me, and any other mirrors you host.")
     return
 
   this_mirror = load_config_from_json('configs', 'me')

@@ -1,8 +1,8 @@
 {
-  "name": "mirror-us-sea1",
+  "name": "mirror-us-sea2",
   "pretty_name": "Armbian Mirror",
   "location": "Seattle, Washington, USA",
-  "url": "https://mirror-us-sea1.armbian.airframes.io",
+  "url": "https://mirror-us-sea2.armbian.airframes.io",
   "bandwidth": "1Gbps",
   "contact": {
     "name": "Kevin Elliott",
