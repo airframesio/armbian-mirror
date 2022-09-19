@@ -5,6 +5,7 @@ if [ ! -f $CONFIG_PATH ]; then
   echo "Config file not found, exiting"
   exit 1
 fi
+echo "Using config file: $CONFIG_PATH"
 
 MIRROR_ENABLED=$(jq -r '.enabled' $CONFIG_PATH)
 if [ "$MIRROR_ENABLED" = "false" ]; then
