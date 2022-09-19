@@ -4,6 +4,10 @@
   "location": "Seattle, Washington, USA",
   "url": "https://mirror-us-sea1.armbian.airframes.io",
   "bandwidth": "1Gbps",
+  "contact": {
+    "name": "Kevin Elliott",
+    "email": "kevin@airframes.io"
+  },
   "sponsor": {
     "name": "Airframes",
     "url": "https://airframes.io",

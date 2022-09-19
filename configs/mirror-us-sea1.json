@@ -4,6 +4,10 @@
   "location": "Seattle, Washington, USA",
   "url": "https://mirror-us-sea1.armbian.airframes.io",
   "bandwidth": "1Gbps",
+  "contact": {
+    "name": "Kevin Elliott",
+    "email": "kevin@airframes.io"
+  },
   "sponsor": {
     "name": "Airframes",
     "url": "https://airframes.io",
@@ -13,7 +17,14 @@
     {
       "type": "images",
       "path": "/var/www/armbian-www/dl",
-      "url": "https://mirror-us-sea1.armbian.airframes.io/dl"
+      "url": "https://mirror-us-sea1.armbian.airframes.io/dl",
+      "source_url": "rsync://rsync.armbian.com/dl"
+    },
+    {
+      "type": "packages",
+      "path": "/var/www/armbian-www/apt",
+      "url": "https://mirror-eu-de1.armbian.airframes.io/apt",
+      "source_url": "rsync://rsync.armbian.com/dl"
     }
   ],
   "enabled": true
