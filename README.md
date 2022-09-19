@@ -26,6 +26,8 @@ The installer will:
 
 # Manual Usage
 
+You shouldn't need to do this, since the cron job should run automatically. But if you choose to run it manually, here is how you can do it.
+
 Mirror with default values using opinionated URL and destination path:
 
 ```
