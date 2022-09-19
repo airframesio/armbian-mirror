@@ -1,4 +1,4 @@
-{# templates/index.html #}
+{#- templates/index.html #}
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,10 +9,11 @@
     th, td { padding: 5px; }
   </style>
   <body style="text-align: center;">
-    <a href="https://armbian.com"><img src="/armbian-logo.png"></a>
+    <a href="https://armbian.com"><img src="armbian-logo.png"></a>
     <h1>Armbian Mirror</h1>
     <p>This is mirror containing various Armbian components.</p>
-    <table>
+    <br>
+    <table style="margin: 0 auto; text-align: left;">
       <tr>
         <td><strong>Location</strong></th>
         <td>{{ this_mirror.location }}</td>
@@ -21,17 +22,21 @@
         <td><strong>Bandwidth</strong></th>
         <td>{{ this_mirror.bandwidth }}</td>
       </tr>
-      {% for repository in this_mirror.repositories %}
+      {%- for repository in this_mirror.repositories %}
       <tr>
-        <td><strong>{{ repository.type }}</strong></td>
+        <td><strong>{{ repository.type | capitalize }}</strong></td>
         <td><a href="{{ repository.url }}">{{ repository.url }}</a></td>
       </tr>
-      {% endfor %}
+      {%- endfor %}
+      <tr>
+        <td><strong>Last Sync</strong></td>
+        <td>{{ last_sync }}</td>
+      </tr>
       <tr>
         <td><strong>Status</strong></td>
         <td>Current</td>
       </tr>
-      {% if this_mirror.status_detail %}
+      {%- if this_mirror.status_detail %}
       <tr>
         <td><strong>Status Detail</strong></td>
         <td>
@@ -48,12 +53,16 @@
       </div>
       <a href="http://airframes.io"><img src="https://app.airframes.io/logotype-bw.svg"></a>
     </p>
+    {%- if our_mirrors|selectattr('enabled', 'equalto', true)|list|length > 0 %}
     <h2>Other Armbian mirrors hosted by Airframes:</h2>
-    {% for mirror in our_mirrors %}
+    {%- for mirror in our_mirrors %}
+    {%- if mirror.enabled %}
     <p>
       <a href="{{ mirror.url }}">{{ mirror.location }}</a>
       ({{ mirror.repositories|selectattr('type')|map(attribute='type')|join(', ') }})
     </p>
-    {% endfor %}
+    {%- endif %}
+    {%- endfor %}
+    {%- endif %}
   </body>
 </html>

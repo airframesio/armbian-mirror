@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
+/opt/armbian-mirror/scripts/fetch-mirrors.py --output /opt/armbian-mirror/www/mirrors.json
 /opt/armbian-mirror/scripts/rsync-mirror.sh
+/opt/armbian-mirror/scripts/update-index.py
