@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+BASE_DIR="/opt/armbian-mirror"
+OWNER="caddy"
+GROUP="www-data"
+
+WWW_DIR="${BASE_DIR}/www"
+SCRIPTS_DIR="${BASE_DIR}/scripts"
+TEMPLATES_DIR="${BASE_DIR}/templates"
+
 # Update existing packages
 sudo apt update && sudo apt full-upgrade -y
 
@@ -10,30 +18,20 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo 
 sudo apt update && sudo apt install caddy -y
 sudo systemctl enable --now caddy
 
-# Setup mirror base path
-sudo mkdir -p /opt/armbian-mirror/www
-sudo chown caddy:www-data /opt/armbian-mirror/www
-sudo chmod 0775 /opt/armbian-mirror/www
+# Setup paths
+sudo chown -R $OWNER:$GROUP $WWW_DIR
+sudo chmod -R 0775 $WWW_DIR
+sudo chown -R caddy:www-data /opt/armbian-mirror/scripts
+sudo chmod +x /opt/armbian-mirror/scripts/*
 
 # Configure Caddy
 sudo mkdir -p /etc/caddy
 sudo cp templates/Caddyfile /etc/caddy/Caddyfile
+sudo systemctl enable caddy
 sudo systemctl restart caddy
 
-# Setup initial HTML template
-sudo cp templates/index.html.initial /opt/armbian-mirror/www/index.html
-sudo cp armbian-logo.png /opt/armbian-mirror/www/armbian-logo.png
-sudo chown caddy:www-data /opt/armbian-mirror/www/*
-sudo chmod 0644 /opt/armbian-mirror/www/*
-
-# Install scripts
-sudo mkdir -p /opt/armbian-mirror/scripts
-sudo cp scripts/* /opt/armbian-mirror/scripts/
-sudo chown -R caddy:www-data /opt/armbian-mirror/scripts
-sudo chmod +x /opt/armbian-mirror/scripts/*
-
 # Fetch initial mirror list
-sudo /opt/armbian-mirror/scripts/fetch-mirrors.py --output /opt/armbian-mirror/www/mirrors.json
+sudo $SCRIPTS_DIR/fetch-mirrors.py --output $WWW_DIR/mirrors.json
 sudo chown caddy:www-data /opt/armbian-mirror/www/mirrors.json
 sudo chmod 0644 /opt/armbian-mirror/www/mirrors.json
 
