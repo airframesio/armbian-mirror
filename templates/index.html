@@ -41,11 +41,15 @@
         <td><strong>Status Detail</strong></td>
         <td>
           This mirror is synchronized with the main Armbian repository.
-          It was last synchronized on 2021-03-31 at 00:00:00 UTC.
+          It was last synchronized at {{ last_sync }}.
         </td>
       </tr>
       {% endif %}
     </table>
+    <br>
+    <p>
+      For assistance with this mirror, please contact <a href="mailto:{{ this_mirror.contact.email }}">{{ this_mirror.contact.email }}</a>.
+    </p>
     <br>
     <p>
       <div style="margin-bottom: 10px;">
