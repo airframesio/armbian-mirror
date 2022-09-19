@@ -37,6 +37,10 @@ sudo /opt/armbian-mirror/scripts/fetch-mirrors.py --output /opt/armbian-mirror/w
 sudo chown caddy:www-data /opt/armbian-mirror/www/mirrors.json
 sudo chmod 0644 /opt/armbian-mirror/www/mirrors.json
 
+# Install python requirements
+sudo apt install -y python3-pip
+sudo pip3 install -r requirements.txt
+
 # Install cron script
 sudo cp templates/cron-script /etc/cron.daily/armbian-mirror
 sudo chmod +x /etc/cron.daily/armbian-mirror

@@ -1,10 +1,10 @@
 #!/bin/sh
 
-DL_MIRROR_DIR=/var/www/armbian-mirror/dl
+DL_MIRROR_DIR="${DL_MIRROR_DIR:-/var/www/armbian-mirror/dl}"
 #DL_MIRROR_URL=rsync://rsync.armbian.com/dl
-DL_MIRROR_URL=rsync://mirrors.dotsrc.org/armbian-dl
-APT_MIRROR_DIR=/var/www/armbian-mirror/apt
-APT_MIRROR_URL=rsync://mirrors.dotsrc.org/armbian-apt
+DL_MIRROR_URL="${DL_MIRROR_URL:-rsync://mirrors.dotsrc.org/armbian-dl}"
+APT_MIRROR_DIR="${APT_MIRROR_DIR:-/var/www/armbian-mirror/apt}"
+APT_MIRROR_URL="${APT_MIRROR_URL:-rsync://mirrors.dotsrc.org/armbian-apt}"
 
 echo "Starting Armbian mirror sync at $(date)"
 

@@ -39,3 +39,13 @@ $ DL_MIRROR_URL=rsync://mirrors.dotsrc.org/armbian-dl \
 APT_MIRROR_URL=rsync://mirrors.dotsrc.org/armbian-apt \
 /opt/armbian-mirror/scripts/rsync-mirror.sh
 ```
+
+Mirror with a custom images and packages URLs and desination paths:
+
+```
+$ DL_MIRROR_URL=rsync://mirrors.dotsrc.org/armbian-dl \
+DL_MIRROR_DIR=/var/www/armbian-mirror/dl \
+APT_MIRROR_URL=rsync://mirrors.dotsrc.org/armbian-apt \
+APT_MIRROR_DIR=/var/www/armbian-mirror/apt \
+/opt/armbian-mirror/scripts/rsync-mirror.sh
+```
