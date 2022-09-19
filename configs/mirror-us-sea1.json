@@ -24,7 +24,7 @@
       "type": "packages",
       "path": "/var/www/armbian-www/apt",
       "url": "https://mirror-eu-de1.armbian.airframes.io/apt",
-      "source_url": "rsync://rsync.armbian.com/dl"
+      "source_url": "rsync://rsync.armbian.com/apt"
     }
   ],
   "enabled": true

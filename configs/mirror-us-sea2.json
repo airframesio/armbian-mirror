@@ -16,8 +16,9 @@
   "repositories": [
     {
       "type": "packages",
-      "path": "/var/www/armbian-www/apt",
-      "url": "https://mirror-us-sea2.armbian.airframes.io/apt"
+      "path": "/opt/armbian-mirror/www/apt",
+      "url": "https://mirror-us-sea2.armbian.airframes.io/apt",
+      "source_url": "rsync://rsync.armbian.com/apt"
     }
   ],
   "enabled": true
