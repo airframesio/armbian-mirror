@@ -20,7 +20,7 @@ touch /var/run/armbian-mirror.lock
 
 if [ -f /var/run/armbian-mirror.last-sync ]; then
   LAST_SYNC=$(cat /var/run/armbian-mirror.last-sync)
-  LAST_SYNC_STRING="$(date -d '@$LAST_SYNC')"
+  LAST_SYNC_STRING="$(date -d @$LAST_SYNC)"
 else
   LAST_SYNC_STRING="never"
 fi
