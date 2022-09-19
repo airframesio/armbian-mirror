@@ -12,6 +12,18 @@ Run the installer:
 $ sudo ./install.sh
 ```
 
+The installer will:
+1. Update the system packages before installation.
+2. Install [Caddy](https://caddyserver.com), a high performance and light web server.
+3. Setup the `/opt/armbian-mirror` paths:
+  * `/opt/armbian-mirror`
+  * `/opt/armbian-mirror/configs`
+  * `/opt/armbian-mirror/www`
+4. Copy in the core scripts and support files.
+5. Copy in the default mirror configs (these need to be customized for your own use).
+6. Start and enable the web server.
+7. Setup the cron job to run hourly.
+
 # Usage
 
 Mirror images to a path:
