@@ -24,28 +24,16 @@ The installer will:
 6. Start and enable the web server.
 7. Setup the cron job to run hourly.
 
-# Usage
+# Manual Usage
 
-Mirror images to a path:
-
-```
-$ ./mirror.sh images /var/www/armbian-mirror/dl
-```
-
-Mirror packages to a path:
+Mirror with default values using opinionated URL and destination path:
 
 ```
-$ ./mirror.sh packages /var/www/armbian-mirror/apt
+$ /opt/armbian-mirror/scripts/rsync-mirror.sh
 ```
 
-Mirror archives to a path:
+Mirror with a custom images and packages URLs:
 
 ```
-$ ./mirror.sh archive /var/www/armbian-mirror/archives
-```
-
-Mirror beta to a path:
-
-```
-$ ./mirror.sh beta /var/www/armbian-mirror/archives
+$ DL_MIRROR_URL=rsync://mirrors.dotsrc.org/armbian-dl APT_MIRROR_URL=rsync://mirrors.dotsrc.org/armbian-apt /opt/armbian-mirror/scripts/rsync-mirror.sh
 ```
