@@ -1,0 +1,9 @@
+HOSTNAME {
+  root * /opt/armbian-mirror/www
+  file_server {
+    browse
+  }
+  log {
+    output file /var/log/caddy/access.log
+  }
+}

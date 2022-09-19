@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+HOSTNAME=${1:-":80"}
 BASE_DIR="/opt/armbian-mirror"
 OWNER="caddy"
 GROUP="www-data"
@@ -26,7 +27,7 @@ sudo chmod +x /opt/armbian-mirror/scripts/*
 
 # Configure Caddy
 sudo mkdir -p /etc/caddy
-sudo cp templates/Caddyfile /etc/caddy/Caddyfile
+cat templates/Caddyfile | sudo sed s/HOSTNAME/$HOSTNAME/ > /etc/caddy/Caddyfile
 sudo systemctl enable caddy
 sudo systemctl restart caddy
 
