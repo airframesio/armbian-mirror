@@ -4,6 +4,12 @@
 
 An opinionated way to setup and manage Armbian mirrors on Ubuntu 20.04/22.04.
 
+# Prerequisites
+
+Before you decide to setup your mirror, ensure that the server you are setting up meets
+the minimum requirements listed [here](https://github.com/armbian/mirror). You also should
+be running Ubuntu 20.04 or 22.04. Other versions may work but have not been tested.
+
 # Installation
 
 Run the installer:
