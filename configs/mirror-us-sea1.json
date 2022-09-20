@@ -23,7 +23,7 @@
     {
       "type": "packages",
       "path": "/opt/armbian-mirror/www/apt",
-      "url": "https://mirror-eu-de1.armbian.airframes.io/apt",
+      "url": "https://mirror-us-sea1.armbian.airframes.io/apt",
       "source_url": "rsync://rsync.armbian.com/apt"
     }
   ],
