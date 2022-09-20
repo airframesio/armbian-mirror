@@ -38,7 +38,9 @@ The installer will:
 6. Start and enable the web server.
 7. Setup the cron job to run hourly.
 
-Then create configs in the `/opt/armbian-mirror/configs` directory. There should be a config for each mirror you run.
+# Configuration
+
+Create configs in the `/opt/armbian-mirror/configs` directory. There should be a config for each mirror you run.
 
 For this particular mirror instance, be sure to then create a symbolic link to the config that matches this host from `/opt/armbian-mirror/configs/me`. The scripts are looking for this in order to perform the syncs.
 
@@ -56,7 +58,7 @@ Once the hourly cron kicks in the first time, it will sync automatically. If you
 
 # Manual Usage
 
-You shouldn't need to do this, since the cron job should run automatically. But if you choose to run it manually, here is how you can do it.
+You shouldn't need to do this, since the cron job should run automatically. But if you choose to run it manually, here is how you can do it. Be sure you have done the configuration steps above first.
 
 Mirror with default values using opinionated URL and destination path:
 
