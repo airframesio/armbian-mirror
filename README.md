@@ -4,6 +4,10 @@
 
 An opinionated way to setup and manage Armbian mirrors on Ubuntu 20.04/22.04.
 
+See a few of our mirrors:
+* [https://mirror-us-sea1.armbian.airframes.io](https://mirror-us-sea1.armbian.airframes.io)
+* [https://mirror-eu-de1.armbian.airframes.io](https://mirror-eu-de1.armbian.airframes.io)
+
 # Prerequisites
 
 Before you decide to setup your mirror, ensure that the server you are setting up meets
