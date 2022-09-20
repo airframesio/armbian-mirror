@@ -22,7 +22,7 @@ Run the installer:
 
 ```
 $ cd /opt/armbian-mirror
-$ sudo ./install.sh
+$ sudo ./install.sh <fully-qualified-hostname>
 ```
 
 The installer will:
@@ -30,7 +30,7 @@ The installer will:
 2. Install [Caddy](https://caddyserver.com), a high performance and light web server.
 3. Setup the permissions for the paths.
 4. Copy in the core scripts and support files.
-5. Copy in the default mirror configs (these need to be customized for your own use).
+5. Copy in the default mirror configs (these need to be replaced with your own).
 6. Start and enable the web server.
 7. Setup the cron job to run hourly.
 
@@ -41,6 +41,14 @@ For this particular mirror instance, be sure to then create a symbolic link to t
 ```
 $ ln -s /opt/armbian-mirror/configs/whatever.json /opt/armbian-mirror/configs/me
 ```
+
+Generate the initial `index.html` by running:
+
+```
+$ /opt/armbian-mirror/scripts/update-index.py
+```
+
+Once the hourly cron kicks in the first time, it will sync automatically. If you don't want to wait for the cron to hit, you may follow the Manual Usage section below one time.
 
 # Manual Usage
 

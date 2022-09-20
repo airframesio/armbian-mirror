@@ -14,7 +14,7 @@ if [ "$MIRROR_ENABLED" = "false" ]; then
 fi
 
 if [ -f /var/run/armbian-mirror.lock ]; then
-  echo "Lock file found, exiting"
+  echo "A sync is already running. If this isn't true, remove the /var/run/armbian-mirror.lock file. Exiting."
   exit 0
 fi
 touch /var/run/armbian-mirror.lock
