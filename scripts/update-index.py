@@ -5,6 +5,8 @@ import json
 import os
 from jinja2 import Environment, FileSystemLoader
 
+configs_path = '/opt/armbian-mirror/configs'
+
 def load_mirrors_from_json():
   mirrors_path = 'mirrors.json'
   with open(mirrors_path, 'r') as f:
@@ -31,31 +33,31 @@ def save_html_to_file(html, path):
     f.write(html)
 
 def main():
-  if not os.path.exists('configs/me'):
+  if not os.path.exists(configs_path) or os.listdir(configs_path) == []:
+    print("You must create a config file in %s for this mirror, and any other mirrors you host." % configs_path)
+    return
+
+  if not os.path.exists('%s/me' % configs_path):
     print("You must make a symbolic link from configs/me to this mirror's config file.")
     return
 
-  if os.listdir('configs') == []:
-    print("You must create a config file in configs for this mirror linked to from configs/me, and any other mirrors you host.")
-    return
-
-  this_mirror = load_config_from_json('configs', 'me')
+  this_mirror = load_config_from_json(configs_path, 'me')
   our_mirrors = []
-  for config in load_configs_from_json('configs'):
+  for config in load_configs_from_json(configs_path):
     if config['name'] == this_mirror['name']:
       continue
     our_mirrors.append(config)
   last_sync = load_last_sync()
 
-  env = Environment(loader=FileSystemLoader('templates'))
+  env = Environment(loader=FileSystemLoader('%s/templates' % this_mirror['path']))
   template = env.get_template('index.html')
   context = {
     'this_mirror': this_mirror,
     'our_mirrors': our_mirrors,
     'last_sync': last_sync
   }
-  save_html_to_file(template.render(context), 'www/index.html')
-  print('Updated index.html')
+  save_html_to_file(template.render(context), '%s/www/index.html' % this_mirror['path'])
+  print('Updated %s/www/index.html' % this_mirror['path'])
 
 if __name__ == '__main__':
   main()

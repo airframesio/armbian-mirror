@@ -2,6 +2,7 @@
   "name": "mirror-eu-de1",
   "pretty_name": "Armbian Mirror",
   "location": "Nuremburg, Germany, EU",
+  "path": "/opt/armbian-mirror",
   "url": "https://mirror-eu-de1.armbian.airframes.io",
   "bandwidth": "1Gbps",
   "contact": {
