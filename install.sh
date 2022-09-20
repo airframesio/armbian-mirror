@@ -49,6 +49,6 @@ sudo apt install -y python3-pip
 sudo pip3 install -r requirements.txt
 
 # Install cron script
-sudo cp templates/cron-script /etc/cron.daily/armbian-mirror
-sudo chmod +x /etc/cron.daily/armbian-mirror
-sudo chown root:root /etc/cron.daily/armbian-mirror
+sudo cp templates/cron-script /etc/cron.hourly/armbian-mirror
+sudo chmod +x /etc/cron.hourly/armbian-mirror
+sudo chown root:root /etc/cron.hourly/armbian-mirror
