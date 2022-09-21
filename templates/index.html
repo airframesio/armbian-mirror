@@ -32,7 +32,7 @@
         <td>
           <a href="{{ repository.url }}">{{ repository.url }}</a>
           {%- if repository.size_in_bytes %}
-          ({{ repository.size_in_bytes | filesizeformat }})
+          ({{ repository.size_in_megabytes | filesizeformat }})
           {%- endif %}
         </td>
       </tr>
