@@ -42,6 +42,11 @@ def main():
     return
 
   this_mirror = load_config_from_json(configs_path, 'me')
+  for repository in this_mirror.repositories:
+    if os.path.exists(repository.path):
+      bytes = sum(entry.stat().st_size for entry in os.scandir(repository.path))
+      repository.size_in_megabytes = bytes / (1024 * 1024)
+
   our_mirrors = []
   for config in load_configs_from_json(configs_path):
     if config['name'] == this_mirror['name']:
