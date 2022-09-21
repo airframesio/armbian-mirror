@@ -50,7 +50,15 @@
       </tr>
       <tr>
         <td><strong>Status</strong></td>
-        <td>{{ "Current" if last_sync else "Pending" }}</td>
+        <td>
+          {% if repository.status == 'syncing' %}
+          Syncing
+          {% elif last_sync %}
+          Current
+          {% else %}
+          Pending
+          {% endif %}
+        </td>
       </tr>
       {%- if this_mirror.status_detail %}
       <tr>

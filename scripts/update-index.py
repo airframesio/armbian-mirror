@@ -47,6 +47,8 @@ def main():
     if os.path.exists(repository['path']):
       # bytes = sum(entry.stat().st_size for entry in Path(repository['path']).rglob('*'))
       repository['size_in_bytes'] = subprocess.getoutput('du -sb %s | cut -f1' % repository['path'])
+    if os.path.exists('/var/run/armbian-mirror.lock'):
+      repository['status'] = 'Syncing'
 
   our_mirrors = []
   for config in load_configs_from_json(configs_path):
