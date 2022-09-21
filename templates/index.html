@@ -44,6 +44,12 @@
         </td>
       </tr>
       {%- endfor %}
+      {%- if this_mirror.sync_frequency %}
+      <tr>
+        <td><strong>Sync Frequency</strong></td>
+        <td>{{ this_mirror.sync_frequency | capitalize }}</td>
+      </tr>
+      {%- endif %}
       <tr>
         <td><strong>Last Sync</strong></td>
         <td>{{ last_sync }}</td>

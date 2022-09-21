@@ -6,6 +6,7 @@
   "url": "https://mirror-us-sea1.armbian.airframes.io",
   "bandwidth": "1Gbps",
   "transfer_limit": "32TB / month",
+  "sync_frequency": "hourly",
   "contact": {
     "name": "Kevin Elliott",
     "email": "armbian@airframes.io"
