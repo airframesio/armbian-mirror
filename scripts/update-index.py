@@ -42,7 +42,7 @@ def main():
     return
 
   this_mirror = load_config_from_json(configs_path, 'me')
-  for repository in this_mirror.repositories:
+  for repository in this_mirror['repositories']:
     if os.path.exists(repository.path):
       bytes = sum(entry.stat().st_size for entry in os.scandir(repository.path))
       repository.size_in_megabytes = bytes / (1024 * 1024)
