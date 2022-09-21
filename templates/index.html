@@ -31,8 +31,8 @@
         <td><strong>{{ repository.type | capitalize }}</strong></td>
         <td>
           <a href="{{ repository.url }}">{{ repository.url }}</a>
-          {%- if repository.size_in_megabytes %}
-          ({{ repository.size_in_megabytes | filesizeformat }})
+          {%- if repository.size_in_bytes %}
+          ({{ repository.size_in_bytes | filesizeformat }})
           {%- endif %}
         </td>
       </tr>
