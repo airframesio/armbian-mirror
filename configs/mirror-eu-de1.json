@@ -5,6 +5,7 @@
   "path": "/opt/armbian-mirror",
   "url": "https://mirror-eu-de1.armbian.airframes.io",
   "bandwidth": "1Gbps",
+  "transfer_limit": "32TB/month",
   "contact": {
     "name": "Kevin Elliott",
     "email": "armbian@airframes.io"
@@ -17,13 +18,13 @@
   "repositories": [
     {
       "type": "images",
-      "path": "/var/www/armbian-www/dl",
+      "path": "/opt/armbian-mirror/www/dl",
       "url": "https://mirror-eu-de1.armbian.airframes.io/dl",
       "source_url": "rsync://rsync.armbian.com/apt"
     },
     {
       "type": "packages",
-      "path": "/var/www/armbian-www/apt",
+      "path": "/opt/armbian-mirror/www/apt",
       "url": "https://mirror-eu-de1.armbian.airframes.io/apt",
       "source_url": "rsync://rsync.armbian.com/dl"
     }
