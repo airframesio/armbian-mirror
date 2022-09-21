@@ -41,20 +41,20 @@ MIRROR_PACKAGES_ENABLED=$(jq -r '[.repositories[].type] | contains(["packages"])
 MIRROR_ARCHIVES_ENABLED=$(jq -r '[.repositories[].type] | contains(["archives"])' $CONFIG_PATH)
 MIRROR_BETA_ENABLED=$(jq -r '[.repositories[].type] | contains(["beta"])' $CONFIG_PATH)
 
-if [ "$MIRROR_IMAGES_ENABLED" = "true" ]; then
-  MIRROR_IMAGES_PATH=$(jq -r '.repositories[] | select(.type == "images") | .path' $CONFIG_PATH)
-  MIRROR_IMAGES_URL=$(jq -r '.repositories[] | select(.type == "images") | .url' $CONFIG_PATH)
-  MIRROR_IMAGES_SOURCE_URL=$(jq -r '.repositories[] | select(.type == "images") | .source_url' $CONFIG_PATH)
-  echo "Syncing images from $MIRROR_IMAGES_SOURCE_URL to $MIRROR_IMAGES_PATH"
-  nice -n 15 rsync --no-perms --chown=caddy:www-data --delete -avrP --info=progress2 $MIRROR_IMAGES_SOURCE_URL $MIRROR_IMAGES_PATH
-fi
-
 if [ "$MIRROR_PACKAGES_ENABLED" = "true" ]; then
   MIRROR_PACKAGES_PATH=$(jq -r '.repositories[] | select(.type == "packages") | .path' $CONFIG_PATH)
   MIRROR_PACKAGES_URL=$(jq -r '.repositories[] | select(.type == "packages") | .url' $CONFIG_PATH)
   MIRROR_PACKAGES_SOURCE_URL=$(jq -r '.repositories[] | select(.type == "packages") | .source_url' $CONFIG_PATH)
   echo "Syncing packages from $MIRROR_PACKAGES_SOURCE_URL to $MIRROR_PACKAGES_PATH"
   nice -n 15 rsync --no-perms --chown=caddy:www-data --delete -avrP --info=progress2 $MIRROR_PACKAGES_SOURCE_URL $MIRROR_PACKAGES_PATH
+fi
+
+if [ "$MIRROR_IMAGES_ENABLED" = "true" ]; then
+  MIRROR_IMAGES_PATH=$(jq -r '.repositories[] | select(.type == "images") | .path' $CONFIG_PATH)
+  MIRROR_IMAGES_URL=$(jq -r '.repositories[] | select(.type == "images") | .url' $CONFIG_PATH)
+  MIRROR_IMAGES_SOURCE_URL=$(jq -r '.repositories[] | select(.type == "images") | .source_url' $CONFIG_PATH)
+  echo "Syncing images from $MIRROR_IMAGES_SOURCE_URL to $MIRROR_IMAGES_PATH"
+  nice -n 15 rsync --no-perms --chown=caddy:www-data --delete -avrP --info=progress2 $MIRROR_IMAGES_SOURCE_URL $MIRROR_IMAGES_PATH
 fi
 
 if [ "$MIRROR_ARCHIVES_ENABLED" = "true" ]; then
