@@ -77,7 +77,9 @@
       <a href="http://airframes.io"><img src="https://app.airframes.io/logotype-bw.svg"></a>
     </p>
     {%- if our_mirrors|selectattr('enabled', 'equalto', true)|list|length > 0 %}
-    <h2>Other Armbian mirrors hosted by Airframes:</h2>
+    <h2>
+      Other <a href="https://armbian.com">Armbian</a> mirrors hosted by <a href="{{ this_mirror.sponsor.url }}">{{ this_mirror.sponsor.name }}</a>:
+    </h2>
     {%- for mirror in our_mirrors %}
     {%- if mirror.enabled %}
     <p>
