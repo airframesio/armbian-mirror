@@ -45,6 +45,7 @@ def main():
   for repository in this_mirror['repositories']:
     if os.path.exists(repository['path']):
       bytes = sum(entry.stat().st_size for entry in os.scandir(repository['path']))
+      print(bytes)
       repository['size_in_megabytes'] = bytes / (1024 * 1024)
 
   our_mirrors = []
