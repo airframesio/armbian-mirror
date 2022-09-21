@@ -50,15 +50,7 @@
       </tr>
       <tr>
         <td><strong>Status</strong></td>
-        <td>
-          {% if this_mirror.status == 'syncing' %}
-          Syncing
-          {% elif last_sync %}
-          Current
-          {% else %}
-          Pending
-          {% endif %}
-        </td>
+        <td>{{ this_mirror.status }}</td>
       </tr>
       {%- if this_mirror.status_detail %}
       <tr>
