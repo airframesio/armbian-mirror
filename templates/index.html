@@ -51,7 +51,7 @@
       <tr>
         <td><strong>Status</strong></td>
         <td>
-          {% if repository.status == 'syncing' %}
+          {% if this_mirror.status == 'syncing' %}
           Syncing
           {% elif last_sync %}
           Current
