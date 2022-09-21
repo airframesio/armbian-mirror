@@ -5,7 +5,7 @@
   "path": "/opt/armbian-mirror",
   "url": "https://mirror-us-sea2.armbian.airframes.io",
   "bandwidth": "1Gbps",
-  "transfer_limit": "32TB/month",
+  "transfer_limit": "32TB / month",
   "contact": {
     "name": "Kevin Elliott",
     "email": "armbian@airframes.io"
