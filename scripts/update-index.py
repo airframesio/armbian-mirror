@@ -3,8 +3,8 @@
 import datetime
 import json
 import os
+import subprocess
 from jinja2 import Environment, FileSystemLoader
-from pathlib import Path
 
 configs_path = '/opt/armbian-mirror/configs'
 
@@ -46,7 +46,7 @@ def main():
   for repository in this_mirror['repositories']:
     if os.path.exists(repository['path']):
       # bytes = sum(entry.stat().st_size for entry in Path(repository['path']).rglob('*'))
-      repository['size_in_bytes'] = os.system('du -sb %s | cut -f1' % repository['path'])
+      repository['size_in_bytes'] = subprocess.getoutput('du -sb %s | cut -f1' % repository['path'])
 
   our_mirrors = []
   for config in load_configs_from_json(configs_path):
