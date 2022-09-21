@@ -27,6 +27,12 @@
         <td><strong>Bandwidth</strong></th>
         <td>{{ this_mirror.bandwidth }}</td>
       </tr>
+      {% if this_mirror.transfer_limit %}
+      <tr>
+        <td><strong>Transfer Limit</strong></td>
+        <td>{{ this_mirror.transfer_limit }}</td>
+      </tr>
+      {% endif %}
       {%- for repository in this_mirror.repositories %}
       <tr>
         <td><strong>{{ repository.type | capitalize }}</strong></td>
