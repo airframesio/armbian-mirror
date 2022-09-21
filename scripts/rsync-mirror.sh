@@ -46,7 +46,7 @@ if [ "$MIRROR_IMAGES_ENABLED" = "true" ]; then
   MIRROR_IMAGES_URL=$(jq -r '.repositories[] | select(.type == "images") | .url' $CONFIG_PATH)
   MIRROR_IMAGES_SOURCE_URL=$(jq -r '.repositories[] | select(.type == "images") | .source_url' $CONFIG_PATH)
   echo "Syncing images from $MIRROR_IMAGES_SOURCE_URL to $MIRROR_IMAGES_PATH"
-  nice -n 15 rsync --no-perms --delete-after -avrP $MIRROR_IMAGES_SOURCE_URL $MIRROR_IMAGES_PATH
+  nice -n 15 rsync --no-perms --chown=caddy:www-data --delete -avrP $MIRROR_IMAGES_SOURCE_URL $MIRROR_IMAGES_PATH
 fi
 
 if [ "$MIRROR_PACKAGES_ENABLED" = "true" ]; then
@@ -54,7 +54,7 @@ if [ "$MIRROR_PACKAGES_ENABLED" = "true" ]; then
   MIRROR_PACKAGES_URL=$(jq -r '.repositories[] | select(.type == "packages") | .url' $CONFIG_PATH)
   MIRROR_PACKAGES_SOURCE_URL=$(jq -r '.repositories[] | select(.type == "packages") | .source_url' $CONFIG_PATH)
   echo "Syncing packages from $MIRROR_PACKAGES_SOURCE_URL to $MIRROR_PACKAGES_PATH"
-  nice -n 15 rsync --no-perms --delete-after -avrP $MIRROR_PACKAGES_SOURCE_URL $MIRROR_PACKAGES_PATH
+  nice -n 15 rsync --no-perms --chown=caddy:www-data --delete -avrP $MIRROR_PACKAGES_SOURCE_URL $MIRROR_PACKAGES_PATH
 fi
 
 if [ "$MIRROR_ARCHIVES_ENABLED" = "true" ]; then
@@ -62,7 +62,7 @@ if [ "$MIRROR_ARCHIVES_ENABLED" = "true" ]; then
   MIRROR_ARCHIVES_URL=$(jq -r '.repositories[] | select(.type == "archives") | .url' $CONFIG_PATH)
   MIRROR_ARCHIVES_SOURCE_URL=$(jq -r '.repositories[] | select(.type == "archives") | .source_url' $CONFIG_PATH)
   echo "Syncing archives from $MIRROR_ARCHIVES_SOURCE_URL to $MIRROR_ARCHIVES_PATH"
-  nice -n 15 rsync --no-perms --delete-after -avrP $MIRROR_ARCHIVES_SOURCE_URL $MIRROR_ARCHIVES_PATH
+  nice -n 15 rsync --no-perms --chown=caddy:www-data -avrP $MIRROR_ARCHIVES_SOURCE_URL $MIRROR_ARCHIVES_PATH
 fi
 
 if [ "$MIRROR_BETA_ENABLED" = "true" ]; then
@@ -70,7 +70,7 @@ if [ "$MIRROR_BETA_ENABLED" = "true" ]; then
   MIRROR_BETA_URL=$(jq -r '.repositories[] | select(.type == "beta") | .url' $CONFIG_PATH)
   MIRROR_BETA_SOURCE_URL=$(jq -r '.repositories[] | select(.type == "beta") | .source_url' $CONFIG_PATH)
   echo "Syncing beta from $MIRROR_BETA_SOURCE_URL to $MIRROR_BETA_PATH"
-  nice -n 15 rsync --no-perms --delete-after -avrP $MIRROR_BETA_SOURCE_URL $MIRROR_BETA_PATH
+  nice -n 15 rsync --no-perms --chown=caddy:www-data --delete -avrP $MIRROR_BETA_SOURCE_URL $MIRROR_BETA_PATH
 fi
 
 echo "Finished Armbian mirror sync at $(date)"
