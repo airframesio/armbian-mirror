@@ -25,6 +25,12 @@
   ],
   "repositories": [
     {
+      "type": "cache",
+      "path": "/opt/armbian-mirror/www/cache",
+      "url": "https://mirror-us-stl1.armbian.airframes.io/cache",
+      "source_url": "rsync://mirrors.dotsrc.org/armbian-cache"
+    },
+    {
       "type": "images",
       "path": "/opt/armbian-mirror/www/dl",
       "url": "https://mirror-us-sea2.armbian.airframes.io/dl",
