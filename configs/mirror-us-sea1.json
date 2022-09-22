@@ -16,6 +16,13 @@
     "url": "https://airframes.io",
     "logo": "https://app.airframes.io/logotype-bw.svg"
   },
+  "sponsors": [
+    {
+      "name": "Airframes",
+      "url": "https://airframes.io",
+      "logo": "https://app.airframes.io/logotype-bw.svg"
+    }
+  ],
   "repositories": [
     {
       "type": "images",

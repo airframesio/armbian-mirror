@@ -1,9 +1,9 @@
 {
-  "name": "mirror-eu-de1",
+  "name": "mirror-us-stl1",
   "pretty_name": "Armbian Mirror",
-  "location": "Nuremburg, Germany, EU",
+  "location": "St. Louis, Missouri, USA",
   "path": "/opt/armbian-mirror",
-  "url": "https://mirror-eu-de1.armbian.airframes.io",
+  "url": "https://mirror-us-stl1.armbian.airframes.io",
   "bandwidth": "1Gbps",
   "transfer_limit": "32TB / month",
   "sync_frequency": "hourly",
@@ -25,15 +25,21 @@
   ],
   "repositories": [
     {
+      "name": "cache",
+      "path": "/opt/armbian-mirror/www/cache",
+      "url": "https://mirror-us-stl1.armbian.airframes.io/cache",
+      "source_url": "rsync://mirrors.dotsrc.org/armbian-cache"
+    },
+    {
       "type": "images",
       "path": "/opt/armbian-mirror/www/dl",
-      "url": "https://mirror-eu-de1.armbian.airframes.io/dl",
+      "url": "https://mirror-us-stl1.armbian.airframes.io/dl",
       "source_url": "rsync://mirrors.dotsrc.org/armbian-dl"
     },
     {
       "type": "packages",
       "path": "/opt/armbian-mirror/www/apt",
-      "url": "https://mirror-eu-de1.armbian.airframes.io/apt",
+      "url": "https://mirror-us-stl1.armbian.airframes.io/apt",
       "source_url": "rsync://mirrors.dotsrc.org/armbian-apt"
     }
   ],
