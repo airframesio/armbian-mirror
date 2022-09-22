@@ -34,13 +34,13 @@
       "type": "images",
       "path": "/opt/armbian-mirror/www/dl",
       "url": "https://mirror-eu-de1.armbian.airframes.io/dl",
-      "source_url": "rsync://mirrors.dotsrc.org/armbian-dl"
+      "source_url": "rsync://rsync.armbian.com/dl"
     },
     {
       "type": "packages",
       "path": "/opt/armbian-mirror/www/apt",
       "url": "https://mirror-eu-de1.armbian.airframes.io/apt",
-      "source_url": "rsync://mirrors.dotsrc.org/armbian-apt"
+      "source_url": "rsync://rsync.armbian.com/apt"
     }
   ],
   "enabled": true
