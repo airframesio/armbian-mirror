@@ -1,0 +1,52 @@
+{
+  "name": "mirror-us-phx1",
+  "pretty_name": "Armbian Mirror",
+  "location": "Phoenix, Arizona, USA",
+  "path": "/opt/armbian-mirror",
+  "url": "https://mirror-us-phx1.armbian.airframes.io",
+  "bandwidth": "10Gbps",
+  "transfer_limit": "32TB / month",
+  "sync_frequency": "hourly",
+  "contact": {
+    "name": "Kevin Elliott",
+    "email": "armbian@airframes.io"
+  },
+  "sponsor": {
+    "name": "Airframes",
+    "url": "https://airframes.io",
+    "logo": "https://app.airframes.io/logotype-bw.svg"
+  },
+  "sponsors": [
+    {
+      "name": "Airframes",
+      "url": "https://airframes.io",
+      "logo": "https://app.airframes.io/logotype-bw.svg"
+    },
+    {
+      "name": "ADSB Exchange",
+      "url": "https://www.adsbexchange.com",
+      "logo": "https://www.adsbexchange.com/wp-content/uploads/cropped-Stealth-48px.png"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "cache",
+      "path": "/opt/armbian-mirror/www/cache",
+      "url": "https://mirror-us-phx1.armbian.airframes.io/cache",
+      "source_url": "rsync://rsync.armbian.com/cache"
+    },
+    {
+      "type": "images",
+      "path": "/opt/armbian-mirror/www/dl",
+      "url": "https://mirror-us-phx1.armbian.airframes.io/dl",
+      "source_url": "rsync://rsync.armbian.com/dl"
+    },
+    {
+      "type": "packages",
+      "path": "/opt/armbian-mirror/www/apt",
+      "url": "https://mirror-us-phx1.armbian.airframes.io/apt",
+      "source_url": "rsync://rsync.armbian.com/apt"
+    }
+  ],
+  "enabled": true
+}
