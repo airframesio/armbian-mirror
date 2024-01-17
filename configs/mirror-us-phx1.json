@@ -21,11 +21,6 @@
       "name": "Airframes",
       "url": "https://airframes.io",
       "logo": "https://app.airframes.io/logotype-bw.svg"
-    },
-    {
-      "name": "ADSB Exchange",
-      "url": "https://www.adsbexchange.com",
-      "logo": "https://www.adsbexchange.com/wp-content/uploads/cropped-Stealth-48px.png"
     }
   ],
   "repositories": [
